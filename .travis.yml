@@ -7,7 +7,7 @@ install:
   - docker build -t alephdata/aleph-recognize-text .
 
 script:
-  - sleep 1
+  - docker run -ti alephdata/aleph-recognize-text pytest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
