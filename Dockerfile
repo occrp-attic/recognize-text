@@ -73,7 +73,7 @@ RUN pip3 install --no-cache-dir --upgrade pip
 
 # Install Python binary builds
 RUN apk add --no-cache --virtual=build_deps python3-dev g++ tesseract-ocr-dev cython-dev ca-certificates && \
-    pip3 install --no-cache-dir tesserocr normality grpcio && \
+    pip3 install --no-cache-dir tesserocr normality grpcio protobuf && \
     apk del build_deps
 
 ENV LANG=C
