@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='textrecognizer',
-    version='1.0.0',
+    version='1.0.1',
     author='Organized Crime and Corruption Reporting Project',
     author_email='pudo@occrp.org',
     url='https://occrp.org',
