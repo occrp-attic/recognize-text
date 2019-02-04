@@ -82,7 +82,7 @@ ENV OMP_THREAD_LIMIT=1
 RUN mkdir -p /service
 WORKDIR /service
 COPY setup.py /service/
-RUN pip3 install -q -e /service
+RUN pip3 install --no-cache-dir -q -e /service
 COPY . /service/
 
 # USER nobody:nogroup
