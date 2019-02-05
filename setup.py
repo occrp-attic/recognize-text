@@ -20,7 +20,7 @@ setup(
         'normality',
         'tesserocr',
         'languagecodes>=1.0.4',
-        'alephclient==0.7.1'
+        'servicelayer==0.1.4'
     ],
     zip_safe=False
 )

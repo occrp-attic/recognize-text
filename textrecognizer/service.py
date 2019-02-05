@@ -3,11 +3,10 @@ import time
 import logging
 from threading import RLock
 from concurrent import futures
-from alephclient.services.ocr_pb2_grpc import (
-    add_RecognizeTextServicer_to_server, RecognizeTextServicer
-)
-from alephclient.services.ocr_pb2 import Image
-from alephclient.services.common_pb2 import Text
+from servicelayer.rpc.ocr_pb2 import Image
+from servicelayer.rpc.common_pb2 import Text
+from servicelayer.rpc.ocr_pb2_grpc import RecognizeTextServicer
+from servicelayer.rpc.ocr_pb2_grpc import add_RecognizeTextServicer_to_server
 
 from textrecognizer.recognize import OCR, PSM
 

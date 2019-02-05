@@ -4,19 +4,19 @@ services:
 
 install:
   - echo "${TRAVIS_BRANCH}"
-  - docker build -t alephdata/aleph-recognize-text .
+  - docker build -t alephdata/aleph-recognize-text:$TRAVIS_COMMIT .
 
 script:
-  - docker run -ti alephdata/aleph-recognize-text pytest
+  - docker run -ti alephdata/aleph-recognize-text:$TRAVIS_COMMIT pytest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker tag alephdata/aleph-recognize-text alephdata/aleph-recognize-text:master
-  - docker push alephdata/aleph-recognize-text:master
+  - docker push alephdata/aleph-recognize-text:$TRAVIS_COMMIT
   - if [[ $TRAVIS_TAG = $TRAVIS_BRANCH ]]; then
-      docker push alephdata/aleph-recognize-text;
       docker tag alephdata/aleph-recognize-text alephdata/aleph-recognize-text:$TRAVIS_TAG ;
       docker push alephdata/aleph-recognize-text:$TRAVIS_TAG ;
+    fi
+  - if [[ $TRAVIS_BRANCH = "occrp/production" ]]; then
       docker tag alephdata/aleph-recognize-text alephdata/aleph-recognize-text:occrp ;
       docker push alephdata/aleph-recognize-text:occrp ;
     fi
