@@ -2,13 +2,13 @@
 all: test
 
 build:
-	docker build -t alephdata/aleph-recognize-text .
+	docker build -t alephdata/recognize-text .
 
 test: build
-	docker run -ti alephdata/aleph-recognize-text pytest
+	docker run -ti alephdata/recognize-text pytest
 
 shell: build
-	docker run -v $(PWD):/service -ti alephdata/aleph-recognize-text sh
+	docker run -v $(PWD):/service -ti alephdata/recognize-text sh
 
 run: build
-	docker run -ti -p 50000:50000 alephdata/aleph-recognize-text
+	docker run -ti -p 50000:50000 alephdata/recognize-text
